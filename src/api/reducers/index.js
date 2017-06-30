@@ -1,4 +1,4 @@
-import clients from './clients';
+import clients from 'api/reducers/clients';
 
 export default {
   clients

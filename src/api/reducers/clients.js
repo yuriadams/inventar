@@ -3,17 +3,17 @@ import { fromJS } from 'immutable';
 const initialState = fromJS({
   id_123:{
     id: 1,
-    name: 'Maicol Santos',
+    name: 'Casablanca',
     inventaries: 4,
   },
   id_456:{
     id: 2,
-    name: 'Fulano de tal',
+    name: 'Leroy Merlin',
     inventaries: 3,
   },
   id_789:{
     id: 3,
-    name: 'Beltrano de tal',
+    name: 'Tok Stok',
     inventaries: 0,
   }
 });

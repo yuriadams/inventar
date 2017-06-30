@@ -11,10 +11,10 @@ import createSagaMiddleware from 'redux-saga';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import reducers from './api/reducers';
-import sagas from './api/sagas';
+import reducers from 'api/reducers';
+import sagas from 'api/sagas';
 
-import Clients from './components/clients'
+import Clients from 'components/clients'
 
 class App extends Component {
 

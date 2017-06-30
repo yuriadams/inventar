@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {List} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
 
-import Client from './client';
+import Client from 'components/clients/client';
 
 class ClientList extends Component {
   mappingClients = () => {
@@ -20,7 +19,6 @@ class ClientList extends Component {
     return (
       <div className="Clients">
         <List>
-          <Subheader inset={true}>Clients</Subheader>
           {clients}
         </List>
       </div>
