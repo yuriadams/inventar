@@ -4,8 +4,23 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import Client from 'components/clients/client';
+import ClientForm from 'components/clients/form';
 
 class ClientList extends Component {
+  render() {
+    const clients = this.mappingClients();
+    return (
+      <div className="Clients">
+        <List>
+          {clients}
+        </List>
+        <ClientForm
+          key={`client-form`}
+        />
+      </div>
+    );
+  }
+
   mappingClients = () => {
     const { clients } = this.props;
     return clients.map(client => (
@@ -14,26 +29,6 @@ class ClientList extends Component {
         client={client}
       />
     )).toList().toJS();
-  }
-
-  render() {
-    const style = {
-      float: 'Right',
-      position: 'Relative',
-      marginRight: 20,
-    };
-
-    const clients = this.mappingClients();
-    return (
-      <div className="Clients">
-        <List>
-          {clients}
-        </List>
-        <FloatingActionButton style={style}>
-          <ContentAdd />
-        </FloatingActionButton>
-      </div>
-    );
   }
 }
 

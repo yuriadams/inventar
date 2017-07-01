@@ -15,6 +15,11 @@ const initialState = fromJS({
     id: 3,
     name: 'Tok Stok',
     inventaries: 0,
+  },
+  id_7891:{
+    id: 4,
+    name: 'Tok Stok Washington',
+    inventaries: 0,
   }
 });
 
