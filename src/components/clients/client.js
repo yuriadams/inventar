@@ -2,7 +2,6 @@ import React from 'react';
 import {ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import FileFolder from 'material-ui/svg-icons/file/folder';
-import IconButton from 'material-ui/IconButton';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import {red500} from 'material-ui/styles/colors';
 

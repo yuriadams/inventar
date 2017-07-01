@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {List} from 'material-ui/List';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-
 import Client from 'components/clients/client';
 import ClientForm from 'components/clients/form';
 

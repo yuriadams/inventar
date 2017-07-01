@@ -1,28 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from 'api/actions/clients';
+
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
-import ActionDone from 'material-ui/svg-icons/action/done';
+import ContentAddCircle from 'material-ui/svg-icons/content/add-circle';
 
-const ClientForm = ({  }) => {
-  const style = {
-    marginLeft: 20,
+class ClientForm extends Component {
+  add = () => {
+    this.props.add();
   }
 
-  const btnStyle = {
-    float: 'right',
+  render() {
+    const style = {
+      marginLeft: 20,
+    }
+
+    const btnStyle = {
+      float:   'right',
+      width: 72,
+      height: 72,
+      padding: 16,
+    }
+
+    const iconStyle = {
+      width: 36,
+      height: 36,
+    }
+
+    return (
+      <div style={style}>
+        <TextField
+          hintText="Cliente"
+        />
+        <IconButton
+          touch={true}
+          style={btnStyle}
+          iconStyle={iconStyle}
+          onClick={this.add}>
+          <ContentAddCircle />
+        </IconButton>
+      </div>
+    );
   }
-
-  return (
-    <div style={style}>
-      <TextField
-        hintText="Cliente"
-      />
-      <IconButton style={btnStyle}>
-        <ActionDone />
-      </IconButton>
-    </div>
-  );
-
 }
 
-export default ClientForm;
+export default connect(mapStateToProps, mapDispatchToProps)(ClientForm);

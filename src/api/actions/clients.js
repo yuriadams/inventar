@@ -1,5 +1,9 @@
 export const mapStateToProps = ({ clients }) => ({ clients });
 
+export const actions = {
+  add: 'CLIENT_LIST_ADD',
+}
+
 export const mapDispatchToProps = (dispatch) => {
   return {
     // request: () => dispatch({ type: actions.request }),
@@ -7,7 +11,7 @@ export const mapDispatchToProps = (dispatch) => {
     //   type: actions.requestSuccess,
     //   payload
     // }),
-    // add: () => dispatch({ type: actions.add }),
+    add: () => dispatch({ type: actions.add }),
     // edit: payload => dispatch({
     //   type: actions.edit,
     //   payload
