@@ -37,7 +37,7 @@ class ClientForm extends Component {
           touch={true}
           style={btnStyle}
           iconStyle={iconStyle}
-          onClick={this.add}>
+          onTouchTap={this.add}>
           <ContentAddCircle />
         </IconButton>
       </div>

@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import React, { Component } from 'react';
 /* Setup das libs */
 import { createStore, combineReducers, applyMiddleware } from 'redux';
@@ -15,6 +16,8 @@ import reducers from 'api/reducers';
 import sagas from 'api/sagas';
 
 import Clients from 'components/clients'
+
+injectTapEventPlugin();
 
 class App extends Component {
 
