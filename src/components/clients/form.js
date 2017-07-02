@@ -8,7 +8,7 @@ import ContentAddCircle from 'material-ui/svg-icons/content/add-circle';
 
 class ClientForm extends Component {
   add = () => {
-    this.props.add();
+    this.props.addClient();
   }
 
   render() {

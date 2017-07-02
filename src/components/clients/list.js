@@ -24,8 +24,18 @@ class ClientList extends Component {
       <Client
         key={`client-${client.get('id')}`}
         client={client}
+        editClient={this.editClient}
+        deleteClient={this.deleteClient}
       />
     )).toList().toJS();
+  }
+
+  editClient = () => {
+    this.props.editClient();
+  }
+
+  deleteClient = () => {
+    this.props.deleteClient();
   }
 }
 

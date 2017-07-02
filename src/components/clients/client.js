@@ -11,7 +11,7 @@ import ActionDelete from 'material-ui/svg-icons/action/delete';
 
 import {grey400, darkBlack} from 'material-ui/styles/colors';
 
-const Client = ({ client }) => {
+const Client = ({ client, editClient, deleteClient }) => {
   const iconStyles = {
     marginRight: 5,
     marginTop: 10,
@@ -28,8 +28,14 @@ const Client = ({ client }) => {
 
   const rightIconMenu = (
     <IconMenu iconButtonElement={iconButtonElement}>
-      <MenuItem>Editar</MenuItem>
-      <MenuItem>Deletar</MenuItem>
+      <MenuItem
+        primaryText='Editar'
+        onTouchTap={editClient}
+      />
+      <MenuItem
+        primaryText='Deletar'
+        onTouchTap={deleteClient}
+      />
     </IconMenu>
   );
 

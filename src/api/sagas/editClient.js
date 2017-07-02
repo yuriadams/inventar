@@ -1,10 +1,10 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { clientActions } from 'api/actions/clients';
 
-function* addSuccessfull() {
-  console.log("FUCK!")
+function* editSuccessfull() {
+  console.log("FUCK EDIT!")
 }
 
 export default function* addClient() {
-  yield takeLatest(clientActions.add, addSuccessfull);
+  yield takeLatest(clientActions.edit, editSuccessfull);
 }
