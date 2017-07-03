@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import {List} from 'material-ui/List';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import Inventory from 'components/inventories/inventory'
+import ActionAddButton from 'components/inventories/actionAddButton'
 
 class InventoryList extends Component {
   render() {
-    const style = {
-      marginRight: 20,
-      marginTop: 20,
-      float: 'right'
-    };
-
     const inventories = this.mappingInventories();
 
     return (
@@ -20,9 +13,7 @@ class InventoryList extends Component {
         <List>
           {inventories}
         </List>
-        <FloatingActionButton style={style}>
-          <ContentAdd />
-        </FloatingActionButton>
+        <ActionAddButton />
       </div>
     );
   }
