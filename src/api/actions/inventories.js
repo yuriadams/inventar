@@ -2,31 +2,21 @@ import actions from 'api/config/actions'
 
 export const mapStateToProps = ({ inventories }) => ({ inventories });
 
-export const inventoryActions = {
-  add: 'INVENTORY_LIST_ADD',
-  edit: 'INVENTORY_LIST_EDIT',
-  update: 'INVENTORY_LIST_UPDATE',
-  delete: 'INVENTORY_LIST_DELETE',
-}
-
 export const mapDispatchToProps = (dispatch) => {
   return {
-    // request: () => dispatch({ type: inventoryActions.request }),
-    // requestSuccess: payload => dispatch({
-    //   type: inventoryActions.requestSuccess,
-    //   payload
-    // }),
-    addInventory: () => dispatch({ type: inventoryActions.add }),
+    insertManually: () => dispatch({ type: actions.insertManually }),
+    insertBarCode: () => dispatch({ type: actions.insertBarCode }),
+    addInventory: () => dispatch({ type: actions.addInventory }),
     editInventory: payload => dispatch({
-      type: inventoryActions.edit,
+      type: actions.editInventory,
       payload
     }),
     updateInventory: payload => dispatch({
-      type: inventoryActions.update,
+      type: actions.updateInventory,
       payload
     }),
     deleteInventory: payload => dispatch({
-      type: inventoryActions.delete,
+      type: actions.deleteInventory,
       payload,
     }),
   };

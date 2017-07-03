@@ -7,38 +7,43 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import ImageCropFree from 'material-ui/svg-icons/image/crop-free';
 import ActionCode from 'material-ui/svg-icons/action/code';
 
-class ActionAddButton extends Component {
-  render() {
-    const style = {
-      margin: 0,
-      top: 'auto',
-      right: 20,
-      bottom: 20,
-      left: 'auto',
-      position: 'fixed',
-    };
-
-    return (
-      <SpeedDial
-         style={style}
-         fabContentOpen={<ContentAdd />}
-         fabContentClose={<NavigationClose />}>
-
-         <SpeedDialItem
-           label="Inserir Manualmente"
-           fabContent={<ActionCode/>}
-          //  onTouchTap={this.startNewGame}
-         />
-
-         <SpeedDialItem
-           label="Código de Barras"
-           fabContent={<ImageCropFree/>}
-          //  onTouchTap={this.startNewPage}
-         />
-       </SpeedDial>
-
-    );
+const ActionAddButton = ({ insertManually, insertBarCode }) => {
+  const onInsertManually = () => {
+    insertManually();
   }
+
+  const onInsertBarCode = () => {
+    insertBarCode();
+  }
+
+  const style = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+  };
+
+  return (
+    <SpeedDial
+       style={style}
+       fabContentOpen={<ContentAdd />}
+       fabContentClose={<NavigationClose />}>
+
+       <SpeedDialItem
+         label="Inserir Manualmente"
+         fabContent={<ActionCode/>}
+         onTouchTap={onInsertManually}
+       />
+
+       <SpeedDialItem
+         label="Código de Barras"
+         fabContent={<ImageCropFree/>}
+         onTouchTap={onInsertBarCode}
+       />
+     </SpeedDial>
+  );
 }
 
 export default ActionAddButton;

@@ -10,7 +10,11 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import {grey400} from 'material-ui/styles/colors';
 
-const Inventory = ({ inventory }) => {
+const Inventory = ({ inventory, deleteInventory }) => {
+  const onDeleteClient = () => {
+    deleteInventory(inventory.get('id'));
+  }
+
   const iconButtonElement = (
     <IconButton
       touch={false}
@@ -24,6 +28,7 @@ const Inventory = ({ inventory }) => {
     <IconMenu iconButtonElement={iconButtonElement}>
       <MenuItem
         primaryText='Deletar'
+        onTouchTap={onDeleteClient}
       />
     </IconMenu>
   );

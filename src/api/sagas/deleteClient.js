@@ -5,6 +5,6 @@ function* deleteSuccessfull() {
   console.log("FUCK DELETE!")
 }
 
-export default function* addClient() {
+export default function* deleteClient() {
   yield takeLatest(actions.deleteClient, deleteSuccessfull);
 }
