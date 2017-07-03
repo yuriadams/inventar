@@ -5,28 +5,12 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
 
-import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
-
+import FileFolder from 'material-ui/svg-icons/file/folder';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import {grey400} from 'material-ui/styles/colors';
 
-const Client = ({ client, editClient, deleteClient, navigate }) => {
-  const onDeleteClient = () => {
-    deleteClient(client.get('id'));
-  }
-
-  const onEditClient = () => {
-    editClient(client);
-  }
-
-  const onNavigate = () => {
-    navigate({
-      to: 'inventories',
-      memberId: client.get('id'),
-    })
-  }
-
+const Inventory = ({ inventory }) => {
   const iconButtonElement = (
     <IconButton
       touch={false}
@@ -39,22 +23,16 @@ const Client = ({ client, editClient, deleteClient, navigate }) => {
   const rightIconMenu = (
     <IconMenu iconButtonElement={iconButtonElement}>
       <MenuItem
-        primaryText='Editar'
-        onTouchTap={onEditClient}
-      />
-      <MenuItem
         primaryText='Deletar'
-        onTouchTap={onDeleteClient}
       />
     </IconMenu>
   );
 
   return (
-    <ListItem primaryText={client.get('name')}
+    <ListItem primaryText={inventory.get('name')}
               rightIconButton={rightIconMenu}
-              onTouchTap={onNavigate}
-              leftAvatar={<Avatar icon={<ActionAccountCircle />} />}/>
+              leftAvatar={<Avatar icon={<FileFolder />} />}/>
   );
 }
 
-export default Client;
+export default Inventory;

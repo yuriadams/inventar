@@ -4,7 +4,8 @@ import { mapStateToProps, mapDispatchToProps } from 'api/actions/clients';
 
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
-import ContentAddCircle from 'material-ui/svg-icons/content/add-circle';
+import ActionCheckCircle from 'material-ui/svg-icons/action/check-circle';
+import {green400} from 'material-ui/styles/colors';
 
 class ClientForm extends Component {
   add = () => {
@@ -38,7 +39,7 @@ class ClientForm extends Component {
           style={btnStyle}
           iconStyle={iconStyle}
           onTouchTap={this.add}>
-          <ContentAddCircle />
+          <ActionCheckCircle color={green400}/>
         </IconButton>
       </div>
     );

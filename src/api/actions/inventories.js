@@ -1,6 +1,6 @@
 import actions from 'api/config/actions'
 
-export const mapStateToProps = ({  }) => ({  });
+export const mapStateToProps = ({ inventories }) => ({ inventories });
 
 export const inventoryActions = {
   add: 'INVENTORY_LIST_ADD',
