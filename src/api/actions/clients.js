@@ -1,32 +1,31 @@
-export const mapStateToProps = ({ clients }) => ({ clients });
+import actions from 'api/config/actions'
 
-export const clientActions = {
-  add: 'CLIENT_LIST_ADD',
-  edit: 'CLIENT_LIST_EDIT',
-  update: 'CLIENT_LIST_UPDATE',
-  delete: 'CLIENT_LIST_DELETE',
-}
+export const mapStateToProps = ({ clients }) => ({ clients });
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    // request: () => dispatch({ type: clientActions.request }),
+    // request: () => dispatch({ type: actions.request }),
     // requestSuccess: payload => dispatch({
-    //   type: clientActions.requestSuccess,
+    //   type: actions.requestSuccess,
     //   payload
     // }),
-    addClient: () => dispatch({ type: clientActions.add }),
+    addClient: () => dispatch({ type: actions.addClient }),
     editClient: payload => dispatch({
-      type: clientActions.edit,
+      type: actions.editClient,
       payload
     }),
     updateClient: payload => dispatch({
-      type: clientActions.update,
+      type: actions.updateClient,
       payload
     }),
     deleteClient: payload => dispatch({
-      type: clientActions.delete,
+      type: actions.deleteClient,
       payload,
     }),
+    navigate: payload => dispatch({
+      type: actions.navigate,
+      payload,
+    })
   };
 };
 

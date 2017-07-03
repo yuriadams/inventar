@@ -19,23 +19,17 @@ class ClientList extends Component {
   }
 
   mappingClients = () => {
-    const { clients } = this.props;
+    const { clients, editClient, deleteClient, navigate } = this.props;
+
     return clients.map(client => (
       <Client
         key={`client-${client.get('id')}`}
         client={client}
-        editClient={this.editClient}
-        deleteClient={this.deleteClient}
+        editClient={editClient}
+        deleteClient={deleteClient}
+        navigate={navigate}
       />
     )).toList().toJS();
-  }
-
-  editClient = () => {
-    this.props.editClient();
-  }
-
-  deleteClient = () => {
-    this.props.deleteClient();
   }
 }
 

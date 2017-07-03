@@ -7,15 +7,24 @@ import Avatar from 'material-ui/Avatar';
 
 import FileFolder from 'material-ui/svg-icons/file/folder';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import ActionDelete from 'material-ui/svg-icons/action/delete';
 
-import {grey400, darkBlack} from 'material-ui/styles/colors';
+import {grey400} from 'material-ui/styles/colors';
 
-const Client = ({ client, editClient, deleteClient }) => {
-  const iconStyles = {
-    marginRight: 5,
-    marginTop: 10,
-  };
+const Client = ({ client, editClient, deleteClient, navigate }) => {
+  const onDeleteClient = () => {
+    deleteClient(client.get('id'));
+  }
+
+  const onEditClient = () => {
+    editClient(client);
+  }
+
+  const onNavigate = () => {
+    navigate({
+      to: 'inventories',
+      memberId: client.get('id'),
+    })
+  }
 
   const iconButtonElement = (
     <IconButton
@@ -30,11 +39,11 @@ const Client = ({ client, editClient, deleteClient }) => {
     <IconMenu iconButtonElement={iconButtonElement}>
       <MenuItem
         primaryText='Editar'
-        onTouchTap={editClient}
+        onTouchTap={onEditClient}
       />
       <MenuItem
         primaryText='Deletar'
-        onTouchTap={deleteClient}
+        onTouchTap={onDeleteClient}
       />
     </IconMenu>
   );
@@ -42,6 +51,7 @@ const Client = ({ client, editClient, deleteClient }) => {
   return (
     <ListItem primaryText={client.get('name')}
               rightIconButton={rightIconMenu}
+              onTouchTap={onNavigate}
               leftAvatar={<Avatar icon={<FileFolder />} />}/>
   );
 }

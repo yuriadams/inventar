@@ -1,10 +1,10 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { clientActions } from 'api/actions/clients';
+import actions from 'api/config/actions';
 
 function* deleteSuccessfull() {
   console.log("FUCK DELETE!")
 }
 
 export default function* addClient() {
-  yield takeLatest(clientActions.delete, deleteSuccessfull);
+  yield takeLatest(actions.deleteClient, deleteSuccessfull);
 }
