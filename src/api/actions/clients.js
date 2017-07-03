@@ -25,7 +25,7 @@ export const mapDispatchToProps = (dispatch) => {
     navigate: payload => dispatch({
       type: actions.navigate,
       payload,
-    })
+    }),
   };
 };
 

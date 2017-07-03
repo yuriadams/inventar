@@ -19,6 +19,10 @@ export const mapDispatchToProps = (dispatch) => {
       type: actions.deleteInventory,
       payload,
     }),
+    navigate: payload => dispatch({
+      type: actions.navigate,
+      payload,
+    }),
   };
 };
 

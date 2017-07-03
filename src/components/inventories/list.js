@@ -23,12 +23,13 @@ class InventoryList extends Component {
   }
 
   mappingInventories = () => {
-    const { inventories, deleteInventory } = this.props;
+    const { inventories, deleteInventory, navigate } = this.props;
     return inventories.map(inventory => (
       <Inventory
         key={`inventory-${inventory.get('id')}`}
         inventory={inventory}
         deleteInventory={deleteInventory}
+        navigate={navigate}
       />
     )).toList().toJS();
   }

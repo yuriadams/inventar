@@ -17,6 +17,7 @@ import sagas from 'api/sagas';
 
 import Clients from 'components/clients'
 import Inventories from 'components/inventories'
+import Items from 'components/items'
 
 injectTapEventPlugin();
 
@@ -50,6 +51,7 @@ class App extends Component {
               <Route exact path="/" render={() => (<Redirect to="/clients"/>)}/>
               <Route exact path="/clients" component={Clients} />
               <Route exact path="/clients/:id/inventories" component={Inventories} />
+              <Route exact path="/inventory/:id/items" component={Items} />
             </div>
           </ConnectedRouter>
         </Provider>
