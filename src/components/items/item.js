@@ -6,13 +6,21 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {white} from 'material-ui/styles/colors';
 
-const Item = ({ item, editItem, deleteItem }) => {
+const Item = ({ item, editItem, deleteItem, navigate }) => {
   const onDeleteItem = () => {
     deleteItem(item.get('id'));
   }
 
   const onEditItem = () => {
     editItem(item);
+  }
+
+  const onNavigate = () => {
+    navigate({
+      to: 'itemShow',
+      memberId: item.get('inventory_id'),
+      itemId: item.get('id')
+    })
   }
 
   const iconButtonElement = (
@@ -26,6 +34,10 @@ const Item = ({ item, editItem, deleteItem }) => {
 
   const rightIconMenu = (
     <IconMenu iconButtonElement={iconButtonElement}>
+      <MenuItem
+        primaryText='Visualizar'
+        onTouchTap={onNavigate}
+      />
       <MenuItem
         primaryText='Editar'
         onTouchTap={onEditItem}

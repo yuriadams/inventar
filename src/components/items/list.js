@@ -45,7 +45,7 @@ class ItemList extends Component {
   }
 
   mappingItems = () => {
-    const { items, editItem, deleteItem } = this.props;
+    const { items, editItem, deleteItem, navigate } = this.props;
 
     return items.map(item => (
       <Item
@@ -53,6 +53,7 @@ class ItemList extends Component {
         item={item}
         editItem={editItem}
         deleteItem={deleteItem}
+        navigate={navigate}
       />
     )).toList().toJS();
   }

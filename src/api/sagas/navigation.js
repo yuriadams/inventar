@@ -10,6 +10,9 @@ function* navigate({ payload }) {
     case 'items':
       yield put(push(`/inventories/${payload.memberId}/items`));
       break;
+    case 'itemShow':
+      yield put(push(`/inventories/${payload.memberId}/items/${payload.itemId}`));
+      break;
     default:
       console.log('Sorry, we are out of ' + payload + '.');
   }

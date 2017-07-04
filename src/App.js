@@ -19,6 +19,7 @@ import Toolbar from 'components/toolbar'
 import Clients from 'components/clients'
 import Inventories from 'components/inventories'
 import Items from 'components/items'
+import ItemShow from 'components/items/itemShow'
 
 injectTapEventPlugin();
 
@@ -54,6 +55,7 @@ class App extends Component {
               <Route exact path="/clients" component={Clients} />
               <Route exact path="/clients/:id/inventories" component={Inventories} />
               <Route exact path="/inventories/:id/items" component={Items} />
+              <Route exact path="/inventories/:inventory_id/items/:id" component={ItemShow} />
             </div>
           </ConnectedRouter>
         </Provider>

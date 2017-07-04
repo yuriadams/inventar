@@ -16,6 +16,10 @@ export const mapDispatchToProps = (dispatch) => {
       type: actions.searchItem,
       payload,
     }),
+    navigate: payload => dispatch({
+      type: actions.navigate,
+      payload,
+    }),
     insertManually: () => dispatch({ type: actions.insertManually }),
     insertBarCode: () => dispatch({ type: actions.insertBarCode }),
   };
