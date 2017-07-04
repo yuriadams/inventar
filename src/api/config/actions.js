@@ -10,6 +10,9 @@ const actions = {
   editInventory: `${NAMESPACE}_INVENTORY_LIST_EDIT`,
   updateInventory: `${NAMESPACE}_INVENTORY_LIST_UPDATE`,
   deleteInventory: `${NAMESPACE}_INVENTORY_LIST_DELETE`,
+  editItem: `${NAMESPACE}_ITEM_LIST_EDIT`,
+  deleteItem: `${NAMESPACE}_ITEM_LIST_DELETE`,
+  searchItem: `${NAMESPACE}_ITEM_LIST_SEARCH`,
   insertManually: `${NAMESPACE}_INVENTORY_INSERT_MANUALLY`,
   insertBarCode: `${NAMESPACE}_INVENTORY_INSERT_BAR_CODE`,
 }

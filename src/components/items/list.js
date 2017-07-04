@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GridList } from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
+import TextField from 'material-ui/TextField';
 
 import Item from 'components/items/item'
 import ActionAddButton from 'components/inventories/actionAddButton'
@@ -27,7 +28,11 @@ class ItemList extends Component {
         <div style={rootStyle}>
 
           <GridList cellHeight={180} style={styles}>
-            <Subheader>Items</Subheader>
+            <Subheader>
+              <TextField
+              hintText="Pesquisar"
+              onChange={this.onChange} />
+            </Subheader>
             {items}
           </GridList>
           <ActionAddButton
@@ -40,14 +45,21 @@ class ItemList extends Component {
   }
 
   mappingItems = () => {
-    const { items } = this.props;
+    const { items, editItem, deleteItem } = this.props;
 
     return items.map(item => (
       <Item
         key={`item-${item.get('id')}`}
         item={item}
+        editItem={editItem}
+        deleteItem={deleteItem}
       />
     )).toList().toJS();
+  }
+
+  onChange = ({ target: { value, dataset } }) => {
+    const { searchItem } = this.props;
+    searchItem(value);
   }
 }
 
