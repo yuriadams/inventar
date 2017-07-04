@@ -15,6 +15,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import reducers from 'api/reducers';
 import sagas from 'api/sagas';
 
+import Toolbar from 'components/toolbar'
 import Clients from 'components/clients'
 import Inventories from 'components/inventories'
 import Items from 'components/items'
@@ -48,6 +49,7 @@ class App extends Component {
         <Provider store={this.store}>
           <ConnectedRouter history={this.history}>
             <div className="App">
+              <Toolbar />
               <Route exact path="/" render={() => (<Redirect to="/clients"/>)}/>
               <Route exact path="/clients" component={Clients} />
               <Route exact path="/clients/:id/inventories" component={Inventories} />
