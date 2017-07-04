@@ -51,7 +51,7 @@ class App extends Component {
               <Route exact path="/" render={() => (<Redirect to="/clients"/>)}/>
               <Route exact path="/clients" component={Clients} />
               <Route exact path="/clients/:id/inventories" component={Inventories} />
-              <Route exact path="/inventory/:id/items" component={Items} />
+              <Route exact path="/inventories/:id/items" component={Items} />
             </div>
           </ConnectedRouter>
         </Provider>

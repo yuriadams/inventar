@@ -6,11 +6,10 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 const Item = ({ item }) => {
   return (
     <GridTile
-      key={item.img}
-      title={item.name}
-      subtitle={<span>código: <b>{item.barcode}</b></span>}
-      actionIcon={<IconButton><StarBorder color="white" /></IconButton>}>
-      <img src={item.img} />
+      key={item.get('img')}
+      title={item.get('name')}
+      subtitle={<span>quantidade: <b>{item.get('quantity')}</b></span>}>
+      <img src={item.get('img')} />
     </GridTile>
   );
 }

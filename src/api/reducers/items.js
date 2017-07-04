@@ -15,7 +15,7 @@ const initialState = fromJS({
     barcode: 364236318979,
     quantity: 5,
     inventory_id: 1,
-    img: 'https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwialdOpmO7UAhVQPJAKHaAQDM8QjRwIBw&url=http%3A%2F%2Fwww.americanas.com.br%2Fcategoria%2Fcama-mesa-e-banho%2Fjogo-de-cama%2Fjogo-de-cama-casal&psig=AFQjCNEP5rB6G9NzS_hZss_SxaBBPay8GA&ust=1499208311466811'
+    img: 'https://images-americanas.b2w.io/produtos/01/00/item/129079/3/129079338_1GG.jpg'
   },
   id_item_3:{
     id: 3,
@@ -23,7 +23,7 @@ const initialState = fromJS({
     barcode: 23536437458693,
     quantity: 0,
     inventory_id: 1,
-    img: 'https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiVuu61mO7UAhXIh5AKHVPaDPkQjRwIBw&url=https%3A%2F%2Fbr.pinterest.com%2Fexplore%2Fpanos-de-prato%2F&psig=AFQjCNHKqLBajoS6bq1jPL7MwtB5wkjZuw&ust=1499208338390971'
+    img: 'https://s-media-cache-ak0.pinimg.com/564x/bf/b2/ae/bfb2aecec155227d7e9388f0a19ef83b.jpg'
   },
   id_item_4:{
     id: 4,
@@ -31,7 +31,7 @@ const initialState = fromJS({
     barcode: 992075029571623,
     quantity: 4,
     inventory_id: 1,
-    img: 'https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiJpbvGmO7UAhVSl5AKHS5qAEUQjRwIBw&url=https%3A%2F%2Fwww.dicasemoda.com.br%2Fcomo-dobrar-lencol-com-elastico%2F&psig=AFQjCNH4TvCRq1y5z3W0_fY10rWJdu6XOA&ust=1499208357872064'
+    img: 'https://www.dicasemoda.com.br/wp-content/uploads/2011/08/Como-Dobrar-Len%C3%A7ol-com-El%C3%A1stico.jpg'
   },
   id_item_5:{
     id: 5,
@@ -39,7 +39,15 @@ const initialState = fromJS({
     barcode: 8236523896513,
     quantity: 1,
     inventory_id: 1,
-    img: 'https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiH18jSmO7UAhUJI5AKHRmYAZgQjRwIBw&url=http%3A%2F%2Fwww.fortunata.com.br%2Fstore%2Ffronhas.html&psig=AFQjCNHsls6N8G5q6Y_CndGnOYo4Oo7nmQ&ust=1499208395050280'
+    img: 'http://www.fortunata.com.br/store/media/catalog/product/cache/1/image/820x/040ec09b1e35df139433887a97daa66f/s/t/store.jpg'
+  },
+  id_item_6:{
+    id: 6,
+    name: 'Toalha de banho',
+    barcode: 8236523800513,
+    quantity: 2,
+    inventory_id: 1,
+    img: 'http://havan.vteximg.com.br/arquivos/ids/2307852-1200-1200/toalha-de-banho-lumina-karsten-13-46.jpg'
   },
 });
 
