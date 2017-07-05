@@ -6,13 +6,27 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {white} from 'material-ui/styles/colors';
 
-const Item = ({ item, editItem, deleteItem, navigate }) => {
+const Item = ({ item, editItem, deleteItem, navigate, openDialog }) => {
   const onDeleteItem = () => {
-    deleteItem(item.get('id'));
+    openDialog({
+      open: true,
+      entityName: 'Item',
+      textAction: 'Deletar',
+      textProp: `Deseja excluir o item #${item.get('id')}?`,
+      fn: deleteItem,
+      entity: item.get('id')
+    });
   }
 
   const onEditItem = () => {
-    editItem(item);
+    openDialog({
+      open: true,
+      entityName: 'Item',
+      textAction: 'Editar',
+      textProp: 'Quantidade',
+      fn: editItem,
+      entity: item
+    });
   }
 
   const onNavigate = () => {

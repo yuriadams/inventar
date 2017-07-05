@@ -23,6 +23,10 @@ export const mapDispatchToProps = (dispatch) => {
       type: actions.navigate,
       payload,
     }),
+    openDialog: payload => dispatch({
+      type: actions.openDialog,
+      payload,
+    }),
   };
 };
 

@@ -47,7 +47,7 @@ class ActionDialog extends Component {
           onRequestClose={this.handleClose}
         >
           {this.props.textProp}
-          {(this.props.textAction === 'Deletar')? '' : this.renderForm()}
+          {(this.props.textAction === 'Deletar') ? '' : this.renderForm()}
         </Dialog>
       </div>
     );

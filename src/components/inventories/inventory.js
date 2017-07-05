@@ -10,9 +10,16 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import {grey400} from 'material-ui/styles/colors';
 
-const Inventory = ({ inventory, deleteInventory, navigate }) => {
-  const onDeleteClient = () => {
-    deleteInventory(inventory.get('id'));
+const Inventory = ({ inventory, deleteInventory, navigate, openDialog }) => {
+  const onDeleteInventory = () => {
+    openDialog({
+      open: true,
+      entityName: 'Inventório',
+      textAction: 'Deletar',
+      textProp: `Deseja excluir o inventório #${inventory.get('id')}?`,
+      fn: deleteInventory,
+      entity: inventory.get('id')
+    });
   }
 
   const onNavigate = () => {
@@ -35,7 +42,7 @@ const Inventory = ({ inventory, deleteInventory, navigate }) => {
     <IconMenu iconButtonElement={iconButtonElement}>
       <MenuItem
         primaryText='Deletar'
-        onTouchTap={onDeleteClient}
+        onTouchTap={onDeleteInventory}
       />
     </IconMenu>
   );

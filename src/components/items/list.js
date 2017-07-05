@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 
 import Item from 'components/items/item'
 import ActionAddButton from 'components/home/actionAddButton'
+import ActionDialog from 'components/home/actionDialog'
 
 class ItemList extends Component {
   render() {
@@ -35,6 +36,7 @@ class ItemList extends Component {
             </Subheader>
             {items}
           </GridList>
+          <ActionDialog />
           <ActionAddButton
             insertManually={insertManually}
             insertBarCode={insertBarCode}
@@ -45,7 +47,7 @@ class ItemList extends Component {
   }
 
   mappingItems = () => {
-    const { items, editItem, deleteItem, navigate } = this.props;
+    const { items, editItem, deleteItem, navigate, openDialog } = this.props;
 
     return items.map(item => (
       <Item
@@ -54,6 +56,7 @@ class ItemList extends Component {
         editItem={editItem}
         deleteItem={deleteItem}
         navigate={navigate}
+        openDialog={openDialog}
       />
     )).toList().toJS();
   }

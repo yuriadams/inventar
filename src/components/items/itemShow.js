@@ -5,17 +5,35 @@ import { mapStateToProps, mapDispatchToProps } from 'api/actions/items';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+import ActionDialog from 'components/home/actionDialog'
+
 class ItemShow extends Component {
-  onEditItem = () => {
-    const { editItem }  = this.props
+  onDeleteItem = () => {
+    const { deleteItem, openDialog }  = this.props
     const item = this.getItem();
-    editItem(item);
+
+    openDialog({
+      open: true,
+      entityName: 'Item',
+      textAction: 'Deletar',
+      textProp: `Deseja excluir o item #${item.get('id')}?`,
+      fn: deleteItem,
+      entity: item.get('id')
+    });
   }
 
-  onDeleteItem = () => {
-    const { deleteItem }  = this.props
+  onEditItem = () => {
+    const { editItem, openDialog }  = this.props
     const item = this.getItem();
-    deleteItem(item.get('id'));
+
+    openDialog({
+      open: true,
+      entityName: 'Item',
+      textAction: 'Editar',
+      textProp: 'Quantidade',
+      fn: editItem,
+      entity: item
+    });
   }
 
   getItem = () => {
@@ -32,6 +50,7 @@ class ItemShow extends Component {
 
     return (
       <div className="ItemShow">
+        <ActionDialog />
         <Card>
           <CardMedia
             overlay={<CardTitle
