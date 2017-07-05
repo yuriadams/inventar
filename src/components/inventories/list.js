@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {List} from 'material-ui/List';
 
 import Inventory from 'components/inventories/inventory'
-import ActionAddButton from 'components/inventories/actionAddButton'
+import ActionAddButton from 'components/home/actionAddButton'
 
 class InventoryList extends Component {
   render() {

@@ -4,7 +4,7 @@ import Subheader from 'material-ui/Subheader';
 import TextField from 'material-ui/TextField';
 
 import Item from 'components/items/item'
-import ActionAddButton from 'components/inventories/actionAddButton'
+import ActionAddButton from 'components/home/actionAddButton'
 
 class ItemList extends Component {
   render() {
