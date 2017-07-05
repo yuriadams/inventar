@@ -14,8 +14,14 @@ const Client = ({ client, editClient, deleteClient, navigate, toggleModal }) => 
   }
 
   const onEditClient = () => {
-    // editClient(client);
-    toggleModal(true);
+    toggleModal({
+      open: true,
+      entityName: 'Cliente',
+      textAction: 'Editar',
+      textProp: 'Nome',
+      fn: editClient,
+      entity: client
+    });
   }
 
   const onNavigate = () => {
