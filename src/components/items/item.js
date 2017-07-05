@@ -55,7 +55,7 @@ const Item = ({ item, editItem, deleteItem, navigate }) => {
       title={item.get('name')}
       actionIcon={rightIconMenu}
       subtitle={<span>quantidade: <b>{item.get('quantity')}</b></span>}>
-      <img src={item.get('img')} />
+      <img alt='' src={item.get('img')} />
     </GridTile>
   );
 }

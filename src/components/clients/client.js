@@ -4,20 +4,18 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
-
 import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
-
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
 import {grey400} from 'material-ui/styles/colors';
 
-const Client = ({ client, editClient, deleteClient, navigate }) => {
+const Client = ({ client, editClient, deleteClient, navigate, toggleModal }) => {
   const onDeleteClient = () => {
     deleteClient(client.get('id'));
   }
 
   const onEditClient = () => {
-    editClient(client);
+    // editClient(client);
+    toggleModal(true);
   }
 
   const onNavigate = () => {

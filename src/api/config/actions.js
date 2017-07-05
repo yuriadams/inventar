@@ -15,6 +15,7 @@ const actions = {
   searchItem: `${NAMESPACE}_ITEM_LIST_SEARCH`,
   insertManually: `${NAMESPACE}_INVENTORY_INSERT_MANUALLY`,
   insertBarCode: `${NAMESPACE}_INVENTORY_INSERT_BAR_CODE`,
+  toggleModal: `${NAMESPACE}_OPEN_MODAL`,
 }
 
 export default actions;

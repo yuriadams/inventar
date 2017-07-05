@@ -26,6 +26,10 @@ export const mapDispatchToProps = (dispatch) => {
       type: actions.navigate,
       payload,
     }),
+    toggleModal: payload => dispatch({
+      type: actions.toggleModal,
+      payload,
+    }),
   };
 };
 
