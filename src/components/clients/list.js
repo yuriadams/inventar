@@ -22,7 +22,7 @@ class ClientList extends Component {
   }
 
   mappingClients = () => {
-    const { clients, editClient, deleteClient, navigate, toggleModal } = this.props;
+    const { clients, editClient, deleteClient, navigate, openDialog } = this.props;
 
     return clients.map(client => (
       <Client
@@ -31,7 +31,7 @@ class ClientList extends Component {
         editClient={editClient}
         deleteClient={deleteClient}
         navigate={navigate}
-        toggleModal={toggleModal}
+        openDialog={openDialog}
       />
     )).toList().toJS();
   }

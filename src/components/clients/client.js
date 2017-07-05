@@ -8,13 +8,20 @@ import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {grey400} from 'material-ui/styles/colors';
 
-const Client = ({ client, editClient, deleteClient, navigate, toggleModal }) => {
+const Client = ({ client, editClient, deleteClient, navigate, openDialog }) => {
   const onDeleteClient = () => {
-    deleteClient(client.get('id'));
+    openDialog({
+      open: true,
+      entityName: 'Cliente',
+      textAction: 'Deletar',
+      textProp: `Deseja excluir o Cliente #${client.get('id')}?`,
+      fn: deleteClient,
+      entity: client.get('id')
+    });
   }
 
   const onEditClient = () => {
-    toggleModal({
+    openDialog({
       open: true,
       entityName: 'Cliente',
       textAction: 'Editar',

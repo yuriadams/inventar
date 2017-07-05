@@ -15,6 +15,14 @@ class ActionDialog extends Component {
     this.props.fn(this.props.entity);
   }
 
+  renderForm = () => {
+    return(
+      <TextField
+        name={this.props.textProp.toLowerCase()}
+      />
+    )
+  }
+
   render() {
     const actions = [
       <FlatButton
@@ -32,16 +40,14 @@ class ActionDialog extends Component {
     return (
       <div>
         <Dialog
-          title={`Editar ${this.props.entityName}`}
+          title={`${this.props.textAction} ${this.props.entityName}`}
           actions={actions}
           modal={false}
           open={this.props.open}
           onRequestClose={this.handleClose}
         >
           {this.props.textProp}
-          <TextField
-            name={this.props.textProp.toLowerCase()}
-          />
+          {(this.props.textAction === 'Deletar')? '' : this.renderForm()}
         </Dialog>
       </div>
     );
@@ -60,7 +66,7 @@ export default connect(state => {
 }, (dispatch) => {
   return {
     handleClose: () => dispatch({
-      type: actions.toggleModal,
+      type: actions.openDialog,
       payload: {
         open: false,
         textProp: '',

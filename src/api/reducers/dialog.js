@@ -15,7 +15,7 @@ const initialState = fromJS({
 });
 
 export default (state = initialState, action) => {
-  if (action.type === actions.toggleModal) {
+  if (action.type === actions.openDialog) {
     return fromJS({
       modalProps: {
         open: action.payload.open,

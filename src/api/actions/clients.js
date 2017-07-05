@@ -26,8 +26,8 @@ export const mapDispatchToProps = (dispatch) => {
       type: actions.navigate,
       payload,
     }),
-    toggleModal: payload => dispatch({
-      type: actions.toggleModal,
+    openDialog: payload => dispatch({
+      type: actions.openDialog,
       payload,
     }),
   };
