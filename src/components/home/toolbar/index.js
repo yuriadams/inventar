@@ -1,14 +1,14 @@
+import actions from 'api/config/actions'
 import { connect } from 'react-redux';
-import Toolbar from 'components/toolbar/dummy';
+import Toolbar from 'components/home/toolbar/dummy';
 
 export default connect(state => {
   return {
-    // user: state.user,
+    location: state.router.location,
   }
 }, (dispatch) => {
-
   return {
-    // logout: () => dispatch({ type: 'logout' })
+
   }
 
 })(Toolbar);
