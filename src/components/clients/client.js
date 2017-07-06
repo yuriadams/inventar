@@ -25,7 +25,7 @@ const Client = ({ client, editClient, deleteClient, navigate, openDialog }) => {
       open: true,
       entityName: 'Cliente',
       textAction: 'Editar',
-      textProp: 'Nome',
+      textProp: 'Name',
       fn: editClient,
       entity: client
     });

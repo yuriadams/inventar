@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { fromJS } from 'immutable';
 import actions from 'api/config/actions'
 
 import Dialog from 'material-ui/Dialog';
@@ -7,17 +8,26 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
 class ActionDialog extends Component {
+  formBody = {}
+
   handleClose = () => {
     this.props.handleClose();
   }
 
   handleSubmit = () => {
-    this.props.fn(this.props.entity);
+    this.formBody['id'] = this.props.entity.get('id')
+    this.props.fn(this.formBody);
+  }
+
+  onChange = ({ target: { value } }) => {
+    const attr = this.props.textProp.toLowerCase();
+    this.formBody[attr] = value;
   }
 
   renderForm = () => {
     return(
       <TextField
+        onChange={this.onChange}
         name={this.props.textProp.toLowerCase()}
       />
     )

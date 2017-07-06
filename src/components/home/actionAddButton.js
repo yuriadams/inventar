@@ -7,20 +7,37 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import ImageCropFree from 'material-ui/svg-icons/image/crop-free';
 import ActionCode from 'material-ui/svg-icons/action/code';
 
-const ActionAddButton = ({ insertManually, insertBarCode, openDialog }) => {
-  const onInsertManually = () => {
+const ActionAddButton = ({ searchManually,
+                           searchBarCode,
+                           openDialog,
+                           location,
+                         }) => {
+
+  const onsearchManually = () => {
     openDialog({
       open: true,
       entityName: 'Item',
-      textAction: 'Salvar',
+      textAction: 'Pesquisar',
       textProp: 'Codigo',
-      fn: insertManually,
+      fn: searchManually,
       entity: {}
     });
   }
 
-  const onInsertBarCode = () => {
-    insertBarCode();
+  const onUpdateItem = payload => {
+
+    // openDialog({
+    //   open: true,
+    //   entityName: 'Item',
+    //   textAction: 'Editar',
+    //   textProp: 'Quantidade',
+    //   fn: updateItem,
+    //   entity: payload,
+    // });
+  }
+
+  const onsearchBarCode = () => {
+    window.location = `mochabarcode://CALLBACK=http://192.168.15.15:3000${location.pathname}`;
   }
 
   const style = {
@@ -32,8 +49,24 @@ const ActionAddButton = ({ insertManually, insertBarCode, openDialog }) => {
     position: 'fixed',
   };
 
+  const barCodeCallBack = () => {
+    const barcode = window.location.search.split('BARCODE=')[1];
+    if(barcode){
+      // window.location = window.location.href.split("?")[0];
+      openDialog({
+        open: true,
+        entityName: `Item ${barcode}`,
+        textAction: 'Salvar',
+        textProp: 'Codigo',
+        fn: searchBarCode,
+        entity: barcode
+      });
+    }
+  }
+
   return (
     <SpeedDial
+       onLoadStart={barCodeCallBack()}
        style={style}
        fabContentOpen={<ContentAdd />}
        fabContentClose={<NavigationClose />}>
@@ -41,13 +74,13 @@ const ActionAddButton = ({ insertManually, insertBarCode, openDialog }) => {
        <SpeedDialItem
          label="Inserir Manualmente"
          fabContent={<ActionCode/>}
-         onTouchTap={onInsertManually}
+         onTouchTap={onsearchManually}
        />
 
        <SpeedDialItem
          label="Código de Barras"
          fabContent={<ImageCropFree/>}
-         onTouchTap={onInsertBarCode}
+         onTouchTap={onsearchBarCode}
        />
      </SpeedDial>
   );

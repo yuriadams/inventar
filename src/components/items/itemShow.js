@@ -22,8 +22,8 @@ class ItemShow extends Component {
     });
   }
 
-  onEditItem = () => {
-    const { editItem, openDialog }  = this.props
+  onUpdateItem = () => {
+    const { updateItem, openDialog }  = this.props
     const item = this.getItem();
 
     openDialog({
@@ -31,7 +31,7 @@ class ItemShow extends Component {
       entityName: 'Item',
       textAction: 'Editar',
       textProp: 'Quantidade',
-      fn: editItem,
+      fn: updateItem,
       entity: item
     });
   }
@@ -61,7 +61,7 @@ class ItemShow extends Component {
           </CardMedia>
           <CardTitle title="Quantidade" subtitle={item.get('quantity')} />
           <CardActions>
-            <FlatButton label="Editar" onTouchTap={this.onEditItem} />
+            <FlatButton label="Editar" onTouchTap={this.onUpdateItem} />
             <FlatButton label="Deletar" onTouchTap={this.onDeleteItem}/>
           </CardActions>
         </Card>

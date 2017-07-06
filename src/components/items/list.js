@@ -22,7 +22,7 @@ class ItemList extends Component {
     };
 
     const items = this.mappingItems();
-    const { insertManually, insertBarCode, openDialog } = this.props
+    const { searchManually, searchBarCode, openDialog, location, onUpdateItem } = this.props
 
     return (
       <div className="Items">
@@ -38,9 +38,11 @@ class ItemList extends Component {
           </GridList>
           <ActionDialog />
           <ActionAddButton
-            insertManually={insertManually}
-            insertBarCode={insertBarCode}
+            searchManually={searchManually}
+            searchBarCode={searchBarCode}
             openDialog={openDialog}
+            location={location}
+            onUpdateItem={onUpdateItem}
           />
         </div>
       </div>
@@ -48,13 +50,13 @@ class ItemList extends Component {
   }
 
   mappingItems = () => {
-    const { items, editItem, deleteItem, navigate, openDialog } = this.props;
+    const { items, updateItem, deleteItem, navigate, openDialog } = this.props;
 
     return items.map(item => (
       <Item
         key={`item-${item.get('id')}`}
         item={item}
-        editItem={editItem}
+        updateItem={updateItem}
         deleteItem={deleteItem}
         navigate={navigate}
         openDialog={openDialog}

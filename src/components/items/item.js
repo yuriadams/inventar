@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {white} from 'material-ui/styles/colors';
 
-const Item = ({ item, editItem, deleteItem, navigate, openDialog }) => {
+const Item = ({ item, updateItem, deleteItem, navigate, openDialog }) => {
   const onDeleteItem = () => {
     openDialog({
       open: true,
@@ -18,13 +18,13 @@ const Item = ({ item, editItem, deleteItem, navigate, openDialog }) => {
     });
   }
 
-  const onEditItem = () => {
+  const onUpdateItem = () => {
     openDialog({
       open: true,
       entityName: 'Item',
       textAction: 'Editar',
       textProp: 'Quantidade',
-      fn: editItem,
+      fn: updateItem,
       entity: item
     });
   }
@@ -54,7 +54,7 @@ const Item = ({ item, editItem, deleteItem, navigate, openDialog }) => {
       />
       <MenuItem
         primaryText='Editar'
-        onTouchTap={onEditItem}
+        onTouchTap={onUpdateItem}
       />
       <MenuItem
         primaryText='Deletar'

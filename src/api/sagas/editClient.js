@@ -1,8 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import actions from 'api/config/actions';
 
-function* editSuccessfull() {
-  console.log("FUCK EDIT!")
+function* editSuccessfull({ payload }) {
+  console.log(payload, "EDIT")
 }
 
 export default function* addClient() {

@@ -4,8 +4,8 @@ export const mapStateToProps = ({ inventories }) => ({ inventories });
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    insertManually: () => dispatch({ type: actions.insertManually }),
-    insertBarCode: () => dispatch({ type: actions.insertBarCode }),
+    searchManually: () => dispatch({ type: actions.searchManually }),
+    searchBarCode: () => dispatch({ type: actions.searchBarCode }),
     addInventory: () => dispatch({ type: actions.addInventory }),
     editInventory: payload => dispatch({
       type: actions.editInventory,
