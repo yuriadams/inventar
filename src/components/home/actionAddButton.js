@@ -7,9 +7,16 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import ImageCropFree from 'material-ui/svg-icons/image/crop-free';
 import ActionCode from 'material-ui/svg-icons/action/code';
 
-const ActionAddButton = ({ insertManually, insertBarCode }) => {
+const ActionAddButton = ({ insertManually, insertBarCode, openDialog }) => {
   const onInsertManually = () => {
-    insertManually();
+    openDialog({
+      open: true,
+      entityName: 'Item',
+      textAction: 'Salvar',
+      textProp: 'Codigo',
+      fn: insertManually,
+      entity: {}
+    });
   }
 
   const onInsertBarCode = () => {

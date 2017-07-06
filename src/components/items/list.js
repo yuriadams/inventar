@@ -22,7 +22,7 @@ class ItemList extends Component {
     };
 
     const items = this.mappingItems();
-    const { insertManually, insertBarCode } = this.props
+    const { insertManually, insertBarCode, openDialog } = this.props
 
     return (
       <div className="Items">
@@ -40,6 +40,7 @@ class ItemList extends Component {
           <ActionAddButton
             insertManually={insertManually}
             insertBarCode={insertBarCode}
+            openDialog={openDialog}
           />
         </div>
       </div>
