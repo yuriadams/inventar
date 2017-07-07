@@ -1,8 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import actions from 'api/config/actions';
 
-function* updateSuccessfull() {
-  console.log("FUCK EDIT ITEM!")
+function* updateSuccessfull({ payload }) {
+  console.log("FUCK EDIT ITEM!", payload)
 }
 
 export default function* updateItem() {

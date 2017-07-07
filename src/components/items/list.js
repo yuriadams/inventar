@@ -22,7 +22,11 @@ class ItemList extends Component {
     };
 
     const items = this.mappingItems();
-    const { searchManually, searchBarCode, openDialog, location, onUpdateItem } = this.props
+    const { searchManually,
+            searchBarCode,
+            openDialog,
+            location,
+            updateItem } = this.props
 
     return (
       <div className="Items">
@@ -40,9 +44,9 @@ class ItemList extends Component {
           <ActionAddButton
             searchManually={searchManually}
             searchBarCode={searchBarCode}
+            updateItem={updateItem}
             openDialog={openDialog}
             location={location}
-            onUpdateItem={onUpdateItem}
           />
         </div>
       </div>

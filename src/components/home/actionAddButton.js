@@ -42,15 +42,7 @@ const ActionAddButton = ({ searchManually,
   const barCodeCallBack = () => {
     const barcode = window.location.search.split('BARCODE=')[1];
     if(barcode){
-      // window.location = window.location.href.split("?")[0];
-      openDialog({
-        open: true,
-        entityName: `Item ${barcode}`,
-        textAction: 'Salvar',
-        textProp: 'Codigo',
-        fn: searchBarCode,
-        entity: barcode
-      });
+      searchBarCode({ barcode: barcode, callback: updateItem })
     }
   }
 
