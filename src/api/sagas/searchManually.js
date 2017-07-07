@@ -3,7 +3,6 @@ import { fromJS } from 'immutable';
 import actions from 'api/config/actions';
 
 function* searchSuccesfull({ payload }) {
-  console.log("INSERT MANUAL!", payload);
   const item = fromJS({
     id_item_1:{
       id: 1,
@@ -14,7 +13,17 @@ function* searchSuccesfull({ payload }) {
       img: 'http://havan.vteximg.com.br/arquivos/ids/2520599-1200-1200/toalha-de-mesa-quadrada-140x140-requinte-dohler-2-13.jpg'
     }
   })
-  yield put({ type: actions.editItem, payload: item });
+
+  yield put({ type: actions.openDialog, payload: {
+      open: true,
+      entityName: 'Item',
+      textAction: 'Editar',
+      textProp: 'Quantidade',
+      formValue: '',
+      fn: payload.callback,
+      entity: item
+    }
+  });
 }
 
 export default function* searchManually() {

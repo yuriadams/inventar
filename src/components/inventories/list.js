@@ -8,7 +8,7 @@ import ActionDialog from 'components/home/actionDialog'
 class InventoryList extends Component {
   render() {
     const inventories = this.mappingInventories();
-    const { searchManually, searchBarCode, openDialog, location } = this.props
+    const { searchManually, searchBarCode, updateItem, openDialog, location } = this.props
 
     return (
       <div className="Inventories">
@@ -19,6 +19,7 @@ class InventoryList extends Component {
         <ActionAddButton
           searchManually={searchManually}
           searchBarCode={searchBarCode}
+          updateItem={updateItem}
           openDialog={openDialog}
           location={location}
         />

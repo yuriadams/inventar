@@ -17,6 +17,7 @@ const actions = {
   searchManually: `${NAMESPACE}_INVENTORY_INSERT_MANUALLY`,
   searchBarCode: `${NAMESPACE}_INVENTORY_INSERT_BAR_CODE`,
   openDialog: `${NAMESPACE}_OPEN_MODAL`,
+  handleFormValueChange: `${NAMESPACE}_FORM_CHANGE`,
 }
 
 export default actions;

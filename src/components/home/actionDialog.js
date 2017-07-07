@@ -15,20 +15,24 @@ class ActionDialog extends Component {
   }
 
   handleSubmit = () => {
-    this.formBody['id'] = this.props.entity.get('id')
+    const attr = this.props.textProp.toLowerCase();
+    this.formBody[attr] = this.props.formValue;
+    this.formBody['id'] = this.props.entity.get('id');
+    this.formBody['callback'] = this.props.callback;
     this.props.fn(this.formBody);
   }
 
   onChange = ({ target: { value } }) => {
-    const attr = this.props.textProp.toLowerCase();
-    this.formBody[attr] = value;
+    this.props.handleFormValueChange({value: value, props: this.props});
   }
 
   renderForm = () => {
     return(
       <TextField
         onChange={this.onChange}
+        id={this.props.textProp.toLowerCase()}
         name={this.props.textProp.toLowerCase()}
+        value={this.props.formValue}
       />
     )
   }
@@ -57,7 +61,9 @@ class ActionDialog extends Component {
           onRequestClose={this.handleClose}
         >
           {this.props.textProp}
-          {(this.props.textAction === 'Deletar') ? '' : this.renderForm()}
+          {(this.props.textAction === 'Deletar') ?
+          '' :
+          this.renderForm()}
         </Dialog>
       </div>
     );
@@ -71,10 +77,16 @@ export default connect(state => {
     textProp: state.dialog.get('modalProps').get('textProp'),
     entityName: state.dialog.get('modalProps').get('entityName'),
     entity: state.dialog.get('modalProps').get('entity'),
+    formValue: state.dialog.get('modalProps').get('formValue'),
     fn: state.dialog.get('modalProps').get('fn'),
+    callback: state.dialog.get('modalProps').get('callback'),
   }
 }, (dispatch) => {
   return {
+    handleFormValueChange: payload => dispatch({
+      type: actions.handleFormValueChange,
+      payload
+    }),
     handleClose: () => dispatch({
       type: actions.openDialog,
       payload: {
@@ -82,6 +94,7 @@ export default connect(state => {
         textProp: '',
         textAction: '',
         entityName: '',
+        formValue: '',
         entity: {},
         fn: () => {
           return false;

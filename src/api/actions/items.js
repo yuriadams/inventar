@@ -4,10 +4,6 @@ export const mapStateToProps = ({ items }) => ({ items });
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    editItem: payload => dispatch({
-      type: actions.updateItem,
-      payload
-    }),
     updateItem: payload => dispatch({
       type: actions.updateItem,
       payload
@@ -28,8 +24,14 @@ export const mapDispatchToProps = (dispatch) => {
       type: actions.openDialog,
       payload,
     }),
-    searchManually: () => dispatch({ type: actions.searchManually }),
-    searchBarCode: () => dispatch({ type: actions.searchBarCode }),
+    searchManually: payload => dispatch({
+      type: actions.searchManually,
+      payload,
+    }),
+    searchBarCode: payload => dispatch({
+      type: actions.searchBarCode,
+      payload,
+    }),
   };
 };
 

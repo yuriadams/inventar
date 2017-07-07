@@ -7,10 +7,14 @@ const initialState = fromJS({
     textAction: '',
     textProp: '',
     entityName: '',
+    formValue: '',
     entity: {},
     fn: () => {
       return false;
-    }
+    },
+    callback: () => {
+      return false;
+    },
   }
 });
 
@@ -22,8 +26,10 @@ export default (state = initialState, action) => {
         entityName: action.payload.entityName,
         textAction: action.payload.textAction,
         textProp: action.payload.textProp,
+        formValue: action.payload.formValue,
         entity: action.payload.entity,
-        fn: action.payload.fn
+        fn: action.payload.fn,
+        callback: action.payload.callback,
       }
     })
   }

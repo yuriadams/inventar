@@ -9,6 +9,7 @@ import ActionCode from 'material-ui/svg-icons/action/code';
 
 const ActionAddButton = ({ searchManually,
                            searchBarCode,
+                           updateItem,
                            openDialog,
                            location,
                          }) => {
@@ -20,20 +21,9 @@ const ActionAddButton = ({ searchManually,
       textAction: 'Pesquisar',
       textProp: 'Codigo',
       fn: searchManually,
+      callback: updateItem,
       entity: {}
     });
-  }
-
-  const onUpdateItem = payload => {
-
-    // openDialog({
-    //   open: true,
-    //   entityName: 'Item',
-    //   textAction: 'Editar',
-    //   textProp: 'Quantidade',
-    //   fn: updateItem,
-    //   entity: payload,
-    // });
   }
 
   const onsearchBarCode = () => {
