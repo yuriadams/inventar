@@ -33,7 +33,7 @@ const BackItem = ({ location, history }) => {
     </IconButton>
   );
 
-  return (location.pathname === '/clients') ? null : backMenu
+  return (location.pathname === '/clients' || location.pathname === '/login') ? null : backMenu
 }
 
 const Toolbar = ({ location, history, logout, user }) => (
