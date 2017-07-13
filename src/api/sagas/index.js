@@ -10,6 +10,8 @@ import deleteInventory from 'api/sagas/deleteInventory';
 import searchManually from 'api/sagas/searchManually';
 import searchBarCode from 'api/sagas/searchBarCode';
 import formValueChange from 'api/sagas/formValueChange';
+import watchLogin from 'api/sagas/watchLogin';
+import watchLogout from 'api/sagas/watchLogout';
 
 function* rootSaga() {
   yield fork(watchNavigation);
@@ -23,6 +25,8 @@ function* rootSaga() {
   yield fork(searchManually);
   yield fork(searchBarCode);
   yield fork(formValueChange);
+  yield fork(watchLogout);
+  yield fork(watchLogin);
 }
 
 export default rootSaga;

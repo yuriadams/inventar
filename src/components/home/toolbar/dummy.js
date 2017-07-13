@@ -7,14 +7,18 @@ import NavigationChevronLeft from 'material-ui/svg-icons/navigation/chevron-left
 import NavigationMoreVert from 'material-ui/svg-icons/navigation/more-vert';
 import {white} from 'material-ui/styles/colors';
 
-const ToolbarMenu = ({ logout }, props) => (
-  // só aparece se o usuario estiver logado, senao aparece nada ou btn login
+const ToolbarMenu = ({ logout, user }, props) => (
+  (Object.keys(user).length === 0 && user.constructor === Object) ?
+  null :
   <IconMenu
     {...props}
     iconButtonElement={
       <IconButton><NavigationMoreVert color={white} /></IconButton>
     }>
-    <MenuItem primaryText="Sair" />
+    <MenuItem
+      primaryText="Sair"
+      onTouchTap={logout}
+    />
   </IconMenu>
 );
 
@@ -32,14 +36,14 @@ const BackItem = ({ location, history }) => {
   return (location.pathname === '/clients') ? null : backMenu
 }
 
-const Toolbar = ({ location, history }) => (
+const Toolbar = ({ location, history, logout, user }) => (
   <AppBar
     title={<span>Inventar</span>}
     iconElementLeft={<BackItem
       location={location}
       history={history}
     />}
-    iconElementRight={<ToolbarMenu />}
+    iconElementRight={<ToolbarMenu logout={logout} user={user}/>}
   />
 );
 

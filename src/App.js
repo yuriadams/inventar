@@ -1,3 +1,4 @@
+import 'api/config/firebase';
 import 'babel-polyfill';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import React, { Component } from 'react';
@@ -20,6 +21,7 @@ import Clients from 'components/clients'
 import Inventories from 'components/inventories'
 import Items from 'components/items'
 import ItemShow from 'components/items/itemShow'
+import Login from 'components/auth';
 
 injectTapEventPlugin();
 
@@ -44,6 +46,18 @@ class App extends Component {
     sagaMiddleware.run(sagas);
   }
 
+  componentDidMount() {
+    window.firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
+  }
+
+  onAuthStateChanged = (payload) => {
+    const action = {
+      type: 'logged',
+      payload,
+    };
+    this.store.dispatch(action);
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -56,6 +70,7 @@ class App extends Component {
               <Route exact path="/clients/:id/inventories" component={Inventories} />
               <Route exact path="/inventories/:id/items" component={Items} />
               <Route exact path="/inventories/:inventory_id/items/:id" component={ItemShow} />
+              <Route exact path="/login" component={Login} />
             </div>
           </ConnectedRouter>
         </Provider>

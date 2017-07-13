@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {List} from 'material-ui/List';
 import Client from 'components/clients/client';
 import ClientForm from 'components/clients/form';
 import ActionDialog from 'components/home/actionDialog'
+import { mapStateToProps, mapDispatchToProps } from 'api/actions/auth';
 
 class ClientList extends Component {
+  componentWillMount() {
+    const { user, redirectToLogin } = this.props;
+    redirectToLogin(user.uid);
+  }
+
   render() {
     const clients = this.mappingClients();
 
@@ -37,4 +45,6 @@ class ClientList extends Component {
   }
 }
 
-export default ClientList;
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ClientList)
+);
