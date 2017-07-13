@@ -12,8 +12,8 @@ class Container extends React.Component {
   }
 
   render() {
-    const { onLogin } = this.props;
-    return <Login onLogin={onLogin} />
+    const { onLoginGoogle } = this.props;
+    return <Login onLoginGoogle={onLoginGoogle} />
   }
 }
 

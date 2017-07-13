@@ -18,7 +18,7 @@ const titleStyle = {
   textAlign: 'center'
 }
 
-const Login = ({ onLogin }) => (
+const Login = ({ onLoginGoogle }) => (
   <Card style={cardStyle}>
     <CardTitle title='Login:' style={titleStyle}/>
     <Divider />
@@ -38,13 +38,13 @@ const Login = ({ onLogin }) => (
           target="_blank"
           primary={true}
           label="Login"
-          onTouchTap={onLogin}
+          onTouchTap={onLoginGoogle}
         />
       <RaisedButton
           target="_blank"
           secondary={true}
           label="Login Google"
-          onTouchTap={onLogin}
+          onTouchTap={onLoginGoogle}
         />
     </CardActions>
   </Card>

@@ -10,5 +10,5 @@ function* prepareLogin() {
 }
 
 export default function* watchLogin() {
-  yield takeLatest(actions.login, prepareLogin);
+  yield takeLatest(actions.loginGoogle, prepareLogin);
 }

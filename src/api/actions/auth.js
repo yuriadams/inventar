@@ -15,7 +15,7 @@ export const mapDispatchToProps = (dispatch) => {
         dispatch(push('/login'));
       }
     },
-    onLogin: () => dispatch({ type: actions.login })
+    onLoginGoogle: () => dispatch({ type: actions.loginGoogle })
   };
 };
 
