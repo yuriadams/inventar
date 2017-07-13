@@ -17,7 +17,6 @@ class ActionDialog extends Component {
   handleSubmit = () => {
     const attr = this.props.textProp.toLowerCase();
     this.formBody[attr] = this.props.formValue;
-    console.log(this.props.entity.get('id'))
     this.formBody['id'] = this.props.entity.get('id');
     this.formBody['callback'] = this.props.callback;
     this.props.fn(this.formBody);
