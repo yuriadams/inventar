@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Login from 'components/auth/login';
 import { mapStateToProps, mapDispatchToProps } from 'api/actions/auth';
 
-class Container extends React.Component {
+class Container extends Component {
 
   componentDidUpdate() {
     const { user, redirectToHome } = this.props;
@@ -12,10 +12,11 @@ class Container extends React.Component {
   }
 
   render() {
-    const { onLoginGoogle, onLogin } = this.props;
+    const { onLoginGoogle, onLogin, user } = this.props;
     return <Login
               onLoginGoogle={onLoginGoogle}
               onLogin={onLogin}
+              user={user}
           />
   }
 }

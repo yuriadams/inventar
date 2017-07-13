@@ -25,7 +25,8 @@ class Login extends Component {
   }
 
   onLogin = () => {
-    this.props.onLogin();
+    const { user, onLogin } = this.props;
+    onLogin(user);
   }
 
   onLoginGoogle = () => {
@@ -33,10 +34,12 @@ class Login extends Component {
   }
 
   onChangeForm = ({ target: { value, name } }) => {
-    console.log(name, value)
+    const { user } = this.props;
+    user[name] = value;
   }
 
   render() {
+    const { user } = this.props;
     return (
       <Card style={this.cardStyle}>
         <CardTitle title='Login:' style={this.titleStyle}/>
@@ -47,6 +50,7 @@ class Login extends Component {
               hintText="Email"
               floatingLabelText="Email"
               name='email'
+              value={user.email}
               onChange={this.onChangeForm}
             />
             <TextField
@@ -54,6 +58,7 @@ class Login extends Component {
               floatingLabelText='Senha'
               type='password'
               name='senha'
+              value={user.password}
               onChange={this.onChangeForm}
             />
           </div>
@@ -76,8 +81,5 @@ class Login extends Component {
     )
   }
 }
-// const Login = ({ onLogin, onLoginGoogle }) => (
-//
-// );
 
 export default Login;
